@@ -1,16 +1,33 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&display=swap');
-
-:root{
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+:root,:root[data-theme="dark"]{
     --primary-color:#f0f0f0;
     --primary-bg-color:#111217;
     --secondary-bg-color:#282925;
-    --border-color:#28292E;
-    --title-color:#9A9A9C;
+    --primary-border-color:#28292E;
+    --secondary-border-color:#56575A;
+    --title-color:#f0f0f0;
     --text-color:#9A9A9C;
     --link-color:#9A9A9C;
     --icon-color:#c7c8c9;
 
+}
+
+
+html[data-theme="light"] .brand__logo{
+    filter:invert(1);
+}
+:root[data-theme="light"]{
+    --primary-color:#0b0b0f;
+    --primary-bg-color:#E9E9E9;
+    --secondary-bg-color:#C7C8C9;
+    --primary-border-color:#C7C8C9;
+    --secondary-border-color:#0b0b0f;
+    --title-color:#0B0B0F;
+    --text-color:#28292E;
+    --link-color:#28292E;
+    --icon-color:#56575A;
 }
 
 *{
@@ -26,9 +43,59 @@
 body{
     background:var(--primary-bg-color);
     font-family:"Inter", sans-serif;
+    min-height: 80vh; /* Adicione esta linha */
+    overflow-x: hidden; /* Adicione esta linha */
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+    gap:2rem;
+    padding:2.5rem 1rem;
+    margin:0 auto;
+
+}
+.main__contente1{
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+
+}
+.main__content2 iframe{
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+
 a{
     text-decoration: none;
+    color:var(--text-color);
+}
+h1{
+    font-size:2.5rem;
+    font-weight: 200;
+    width:100%;
+}
+b{
+    font-weight: 400;
+}
+h1,h2,h3{
+    font-family: "League Spartan", sans-serif;
+    text-transform: uppercase;
+    color:var(--title-color);
+    margin: 1rem auto;
+    font-weight: 200;
+}
+
+p{
+    text-align: justify;
+    color: var(--text-color);
+    font-size: 1.25rem;
+}
+a:hover{
+    color:var(--primary-color);
+    font-weight: 600;
 }
 
 i{
@@ -38,12 +105,18 @@ i{
 }
 .header{
     display: flex;
-    width:100%;
+    width:100vw;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-items: center;
     padding:0.5rem 1rem;
     
+}
+.header__toggle{
+    display: flex;
+    justify-content: flex-end;
+}
+.header__nav{
+    display: none;
 }
 
 .header__brand  .brand__logo{
@@ -54,7 +127,9 @@ i{
 
 #toggleTheme{
     font-size:1.5rem;
-    color:var(--primary-color)
+    color:var(--primary-color);
+    cursor: pointer;
+    transition: ease-in-out 0.4s;
 }
 
 
@@ -66,17 +141,19 @@ i{
 }
 
 .menu--mobile{
-    width: 100vw;
+    width: 100%;
     position: fixed;
     bottom:0;
     justify-content: space-between;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--primary-border-color);
 
 }
-
+/* 
 .menu__item{
     width:100vw;
-}
+}  */
+ 
+
 
 
 .menu--mobile .menu__link{
@@ -89,7 +166,10 @@ i{
 }
 
 .menu__link.active .menu__icon,
-.menu__link.active  .menu__text{
+.menu__link.active  .menu__text,
+.menu__link:hover .menu__icon,
+.menu__link:hover  .menu__text
+{
     color:var(--primary-color);
     font-weight: 600;
 }
@@ -102,12 +182,211 @@ i{
 .menu__text{
     font-size:0.75rem;
     text-transform: uppercase;
+    margin:1rem 0;
+}
+.menu--principal{
+    gap:1rem;
+}
+.menu--social{
+    gap:1rem;
+}
+.btn{
+    background: transparent;
+    border-radius: 3.125rem;
+    padding:0.875rem 1.5rem;
+    width:100%;
+    display: flex;
+    gap:0.625rem;
+    align-items: center;
+    justify-content: center;
+    transition:  ease-in-out 0.3s;
+    cursor:pointer;
+  
+}
+.btn:hover{
+    transform: scale(1.05);
+    transition:  ease-in-out 0.3s;
+}
+.btn--primary{
+    border:1px solid var(--primary-color);
+
+}
+.btn span , .btn i{
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+.btn--primary span{
+    color:var(--primary-color);
+   
+}
+.skills{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap:1.25rem;
+    padding:6.25rem 1rem 2rem 1rem;
+    background:var(--secondary-bg-color);
+    margin-top:-5.5rem;
+
+}
+
+
+.skills h2{
+    text-transform: none;
+    font-size:2rem;
+}
+.skills__list{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap:0.5rem;
+    
+}
+
+.skills__item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    align-items: center;
+    width:4.8rem;
+    height: 4.8rem;;
+    aspect-ratio: 1/1;
+    border:1px solid var(--secondary-border-color);
+    border-radius:50rem;
+}
+.skills__logo{
+    height:2.4rem;
+    filter:invert(1)
+}
+footer{
+    margin-bottom:6rem;
+}
+
+footer p{
+    color:var(--text-color);
+    text-decoration: none;
+    text-align: center;
+    padding:1rem;
 }
 
 
 
-@media(min-width:768px){
+
+@media (min-width:768px){
+    body{
+        min-height: 100vh;
+    }
+    main{
+        padding:8rem 6rem 4rem 6rem;
+    }
+
+
+    .header{
+        position: fixed;
+        border-bottom: 1px solid var(--primary-border-color);
+        padding:1rem 3rem;
+        background:var(--primary-bg-color)
+    }
     .menu--mobile{
         display: none;
+    }
+    .menu__text{
+        margin:1rem;
+    }
+    .header__nav{
+        display: flex;
+    }
+    .header__nav,
+    .header__toggle{
+        min-width: 30%;
+    }
+    h1{
+        font-size:4rem;
+    }
+
+
+    .main__content1{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap:5rem;
+        width:100%;
+    }
+    .skills{
+        padding:6.25rem 6rem 2rem 6rem;
+        margin-top:-6rem;
+    }
+    footer{
+        margin:0;
+
+    }
+    footer p{
+        color:var(--text-color);
+        
+    }
+    footer a{
+        color:var(--text-color);
+    }
+    
+    
+}
+
+
+@media(min-width:1200px){
+    main{
+        padding:12rem 6rem 2rem;
+    }
+    .main__content1 .btn{
+        width:auto;
+    }
+    .skills {
+        flex-direction: row;
+        justify-content: space-between;
+        padding:10rem 6rem 4rem;
+    }
+    .skills h2{
+        font-size: 3.5rem;
+        width:60%;
+    }
+
+    .skills__list{
+        gap:1rem;
+    }
+    .skills__item{
+        width:6rem;
+        height:6rem;
+       
+    }
+    .skills__logo{
+        height:3rem;
+    }
+} 
+
+@media (min-width:1400px){
+    h1{
+        font-size: 6.25rem;
+    }
+    .header{
+        padding:1rem 13.2rem;
+    }
+    p{
+        font-size: 1.5rem;
+    }
+
+    main{
+        padding:12rem 15rem 3rem;
+    }
+    .skilss{
+        padding:10rem 15rem 4rem;
+    }
+    footer p{
+        color:var(--text-color);
+        text-decoration: none;
+    }
+    footer a{
+        color:var(--text-color);
     }
 }

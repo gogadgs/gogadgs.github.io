@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,10 +15,39 @@
     </head>
     <body>
         <header class="header">
+            
+        <nav class="header__nav">
+            <ul class="menu menu--prinicpal">
+                <li class="menu__item">
+                    <a class="menu__link active" href="#home">
+                    <span class="menu__text">Home</span>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#projetos">
+                    <span class="menu__text">Projetos</span>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#sobre">
+                    <span class="menu__text">Sobre</span>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#contato">
+                    <span class="menu__text">Contato</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
             <div class="header__brand">
                 <img  class=" brand__logo"src="./src/images/android-chrome-512x512.png" alt="logo Douglas"> 
             </div>
-            <i id="toggleTheme" class="bi bi-brightness-high"></i>
+            <div class="header__toggle">
+
+                <i id="toggleTheme" class="bi bi-brightness-high"></i>
+            </div>
 
         </header>
 
@@ -51,7 +80,70 @@
                 
             </ul>
         </nav>
-        <h1>Douglas Godois dos Santos</h1>
+        <main>
+                <div class="main__content1">
+                    <h1><b>Soluções criativas  &</b> Desenvolvimento 
+                        Front-End</h1>
+                    <p>Douglas Godois dos Santos, Viamão - RS , desenvolvedor e aluno da DIO com enfase em Front-End</p>
+                    <ul class="menu menu--social">
+                        <li>
+                            <a class="menu__link" href="#" target="_blank" rel="noopener noreferrer">
+                                <i class=" menu__icon bi bi-github"></i>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu__link" href="#" target="_blank" rel="noopener noreferrer">
+                                <i class="menu__icon bi bi-linkedin"></i>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu__link" href="#" target="_blank" rel="noopener noreferrer">
+                                <i class="menu__icon bi bi-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu__link"  href="#" target="_blank" rel="noopener noreferrer">
+                                <i class="menu__icon bi bi-facebook"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <button class="btn btn--primary">
+                        <span>Ver Projetos</span>
+                        <i class="bi bi-arrow-down-right"></i>
+                    </button>
+                </div>
+                <div class="main__content2">
+                    <iframe      src="https://www.youtube.com/embed/7AD-ml5qo2Y?si=yNc37L0Lh78ioR9B"
+                     title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+                     clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <section class="skills">
+                    <h2>Conhecimento das principais tecnologias do mercado</h2>
+                    <ul class="skills__list">
+                        <li class="skills__item">
+                            <img class="skills__logo" src="./src/images/htmlcss.png" alt="Logo html e css">
+                        </li>
+                        <li class="skills__item">
+                            <img class="skills__logo" src="./src/images/figma.png" alt="Logo Figma">
+                        </li>
+                        <li class="skills__item">
+                            <img class="skills__logo" src="./src/images/javascript.png" alt="Logo javascript">
+                        </li>
+                        <li class="skills__item">
+                            <img class="skills__logo" src="./src/images/node.png" alt="Logo node">
+                        </li>
+                    </ul>
+                </section>
+        </main>
+
+
+
+        <footer>
+            <p>@2025. Todos os Direitos Reservados. Douglas Godois dos Santos. Desenvolvido por<a href="https://github.com/gogadgs"> DGS</a></p>
+        </footer>
         <script src="./src/JS/index.js" async defer></script>
     </body>
 </html>
