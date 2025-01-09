@@ -18,6 +18,10 @@
 html[data-theme="light"] .brand__logo{
     filter:invert(1);
 }
+html[data-theme="light"] .skills{
+    filter:invert(80%);
+    z-index: -1;
+}
 :root[data-theme="light"]{
     --primary-color:#0b0b0f;
     --primary-bg-color:#E9E9E9;
@@ -65,6 +69,10 @@ main {
 .main__content2 iframe{
     width: 100%;
     aspect-ratio: 16/9;
+    z-index: 0;
+}
+li{
+    color:var(--text-color);
 }
 
 
@@ -77,6 +85,11 @@ h1{
     font-weight: 200;
     width:100%;
 }
+h2{
+    font-size:2rem;
+    text-align: center;
+    margin-bottom:2rem;
+}
 b{
     font-weight: 400;
 }
@@ -84,7 +97,6 @@ h1,h2,h3{
     font-family: "League Spartan", sans-serif;
     text-transform: uppercase;
     color:var(--title-color);
-    margin: 1rem auto;
     font-weight: 200;
 }
 
@@ -193,14 +205,15 @@ i{
 .btn{
     background: transparent;
     border-radius: 3.125rem;
+    border:none;
     padding:0.875rem 1.5rem;
-    width:100%;
     display: flex;
     gap:0.625rem;
     align-items: center;
     justify-content: center;
     transition:  ease-in-out 0.3s;
     cursor:pointer;
+    color:var(--primary-color);
   
 }
 .btn:hover{
@@ -228,6 +241,7 @@ i{
     padding:6.25rem 1rem 2rem 1rem;
     background:var(--secondary-bg-color);
     margin-top:-5.5rem;
+    z-index: -1;
 
 }
 
@@ -239,7 +253,6 @@ i{
 .skills__list{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
     gap:0.5rem;
     
 }
@@ -258,8 +271,48 @@ i{
 }
 .skills__logo{
     height:2.4rem;
-    filter:invert(1)
+    filter:invert(1);
 }
+main, .projects{
+    padding:2.5rem 1rem;
+}
+
+.projects{
+    display: flex;
+    flex-direction: column;
+}
+
+.projects__card{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+}
+.card__cover{
+    width: 100%;
+
+}
+
+.card__body{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.card__title{
+    font-size:1.5rem;
+}
+.card__description{
+    font-size:1rem;
+    color:var(--title-color);
+}
+
+.card__buttons{
+    display: flex;
+    flex-direction: row;
+    gap:1rem;
+}
+
+
 footer{
     margin-bottom:6rem;
 }
@@ -270,6 +323,72 @@ footer p{
     text-align: center;
     padding:1rem;
 }
+.accordion__header span{
+    color:var(--title-color);
+    font-size:1.15rem;
+
+}
+.accordion__body{
+    display: none;
+    padding:1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap:0.625rem;
+   
+}
+
+.accordion__header.start{
+    border-radius: 0.25rem 0.25rem 0rem 0rem;
+}
+.accordion__header.end,
+.accordion__item.active,
+.accordion__body.end{
+    border-radius: 0rem 0rem 0.25rem 0.25rem;
+}
+.accordion__item.active  .accordion__header.end{
+    border-radius: 0;
+}
+.accordion__item.active .accordion__header{
+    background:var(--secondary-bg-color);   
+}
+
+.accordion__item.active .accordion__body{
+    display: flex;
+}
+
+.accordion__item.active .bi-caret-down-fill{
+    transform: rotate(180deg);
+}
+#accordion{
+    border-radius: 0.5rem;
+    border: 1px solid var(--primary-border-color);
+}
+.accordion__header{
+    width: 100%;
+    display: flex;
+    padding:0.75rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--secondary-bg-color);
+    border:1px solid var(--primary-border-color);
+    border-radius: .5rem .5rem;
+    background: transparent;
+}
+#accordion{
+    border-radius: 0.5rem;
+    border: 1px solid var(--primary-border-color);
+}
+.accordion__header{
+    width: 100%;
+    display: flex;
+    padding:0.75rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--secondary-bg-color);
+    border:1px solid var(--primary-border-color);
+    border-radius: .5rem .5rem;
+    background: transparent;
+}
 
 
 
@@ -278,7 +397,7 @@ footer p{
     body{
         min-height: 100vh;
     }
-    main{
+    main, .projects{
         padding:8rem 6rem 4rem 6rem;
     }
 
@@ -305,6 +424,9 @@ footer p{
     h1{
         font-size:4rem;
     }
+    h2{
+        font-size:3rem;
+    }
 
 
     .main__content1{
@@ -319,6 +441,18 @@ footer p{
         padding:6.25rem 6rem 2rem 6rem;
         margin-top:-6rem;
     }
+    .projects__card{
+        flex-direction: row;
+    }
+    .projects__card img{
+        width: 50%;
+    }
+    .card__cover{
+        width: 50%;
+
+    }
+
+    
     footer{
         margin:0;
 
@@ -330,6 +464,8 @@ footer p{
     footer a{
         color:var(--text-color);
     }
+
+    
     
     
 }
@@ -341,6 +477,10 @@ footer p{
     }
     .main__content1 .btn{
         width:auto;
+    }
+
+    h2{
+        font-size: 4rem;
     }
     .skills {
         flex-direction: row;
@@ -363,6 +503,55 @@ footer p{
     .skills__logo{
         height:3rem;
     }
+    .projects__card{
+        flex-direction: row;
+        border-radius: 0.5rem;
+        
+    }
+    .card__reverse{
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    .skills__card{
+        flex-direction: row;
+
+    }
+    .card__body{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap:1rem;
+    }
+    .card__cover{
+        width: 100%;
+        border-radius: 0.5rem;
+        object-fit: cover;
+        object-position: center;
+    }
+    .card__title{
+        font-size:3.25rem;
+    }
+    .card__description, .card__item{
+        font-size:1.25rem;
+        
+    }
+    .card__buttons{
+        display: flex;
+    }
+    .card__body  .skills__item{
+        width: 4rem;
+        height: 4rem;
+    }
+    .card__buttons .btn{
+       width: auto;
+    }
+    .card__body     .skills__logo{
+
+    }
+    .btn--primary{
+        margin:1rem auto;
+    }
 } 
 
 @media (min-width:1400px){
@@ -372,13 +561,27 @@ footer p{
     .header{
         padding:1rem 13.2rem;
     }
+    .contact{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h2{
+        font-size: 5rem;
+        letter-spacing: 0.4rem;
+    }
     p{
         font-size: 1.5rem;
+        margin:1rem 0;
     }
 
     main{
         padding:12rem 15rem 3rem;
     }
+    
     .skilss{
         padding:10rem 15rem 4rem;
     }
@@ -389,4 +592,52 @@ footer p{
     footer a{
         color:var(--text-color);
     }
+}
+
+@media (min-width:992px){
+    .projects__card{
+        flex-direction: row;
+    }
+    .projects__card.card--reverse{
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .card__cover{
+        width:55%;
+    }
+
+    .about{
+        gap:5rem;
+    }
+    .about__content1, .about__content2{
+        display: grid;
+        grid-template-columns: 34% 60%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap:4rem;
+    }
+    .about__description h2{
+        text-align: left;
+    }
+    .about__icons{
+        margin: 1rem 0;
+    }
+   
+
+    .description__buttons{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .about__content1 .col1,
+    .about__content2 .col2 {
+        flex:2;
+        display: flex;
+        flex-direction: column;
+        gap:0.5rem;
+    }
+
+   
+
 }
